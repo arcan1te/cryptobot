@@ -1,6 +1,8 @@
 import discord
 import requests
 
+db = {}
+
 # getting crypto data
 def getCryptoPrices(crypto):
   URL ='https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd'
@@ -54,6 +56,5 @@ async def on_message(message):
     cryptoToBeChecked = message.content.split('$support ',1)[1].lower()
     await message.channel.send(isCryptoSupported(cryptoToBeChecked))
 
-keep_alive()
 BOT_TOKEN = 'TOKEN HERE'
 client.run(BOT_TOKEN)
