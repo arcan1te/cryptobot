@@ -1,3 +1,4 @@
+import os
 import discord
 import requests
 
@@ -56,5 +57,5 @@ async def on_message(message):
     cryptoToBeChecked = message.content.split('$support ',1)[1].lower()
     await message.channel.send(isCryptoSupported(cryptoToBeChecked))
 
-BOT_TOKEN = 'TOKEN HERE'
+BOT_TOKEN = os.environ.get('TOKEN')
 client.run(BOT_TOKEN)
