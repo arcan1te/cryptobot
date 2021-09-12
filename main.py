@@ -1,7 +1,5 @@
 import discord
 import requests
-from replit import db
-from keep_alive import keep_alive
 
 # getting crypto data
 def getCryptoPrices(crypto):
