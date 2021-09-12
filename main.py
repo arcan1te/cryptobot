@@ -34,6 +34,16 @@ async def on_ready():
   channel = discord.utils.get(client.get_all_channels(),name='crypto')
   await client.get_channel(channel.id).send('bot is now online!')
 
+  # init db
+  URL ='https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd'
+  r = requests.get(url=URL)
+  data = r.json()
+
+  # putting the cryptocurrencies and their prices in db
+  for i in range(len(data)):
+    db[data[i]['id']] = data[i]['current_price']
+
+
 # called when there is a message in the chat
 @client.event
 async def on_message(message):
