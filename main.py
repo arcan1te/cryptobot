@@ -32,7 +32,7 @@ client = discord.Client()
 async def on_ready():
   print(f'You have logged in as {client.user}')
   channel = discord.utils.get(client.get_all_channels(),name='crypto')
-  await client.get_channel(channel.id).send('bot is now online!')
+  #await client.get_channel(channel.id).send('bot is now online!')
 
   # init db
   URL ='https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd'
